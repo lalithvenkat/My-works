@@ -1,0 +1,12 @@
+﻿A1,R,R,N,N,N,R,N,R,R,N,N,R,R,R,R,R,R,R,R,N,R,R,N,R,R,N,R,N,R,N,R,R,N,R,R,R,R,R,N,R,R,R,N,R,N,N,N,N,N,N,N,R,R,R,R,N,N,N,N,N,R,N,N,R,R,R,R,R,N,R,N,N,R,N,R,R,N,N,N,R,R,R,N,R,N,N,R,R,N,R,N,N,R,N,N,N,R,R,N,R
+A2,R,N,R,N,R,N,R,R,R,R,R,N,R,N,R,N,N,N,R,N,R,R,N,N,N,R,R,R,R,R,N,N,R,R,R,R,N,R,R,R,R,R,N,R,R,N,N,N,R,N,N,N,N,N,R,N,N,N,R,N,R,N,N,N,R,R,N,N,N,R,N,N,R,R,N,N,N,R,R,R,N,N,R,R,N,R,N,R,N,R,R,R,N,R,R,N,R,R,R,R
+A3,R,R,N,N,R,N,R,R,R,N,R,R,N,N,N,R,N,N,N,R,R,N,R,R,R,R,N,N,N,N,N,N,N,R,R,R,N,R,N,N,R,R,R,N,R,N,N,R,N,N,R,N,R,N,N,N,R,N,R,N,N,R,N,R,N,R,R,R,N,N,R,R,N,N,R,N,R,R,R,R,N,N,R,R,R,N,R,N,R,N,R,R,N,R,N,N,R,N,N,N
+B1,N,N,N,N,N,N,N,N,R,R,N,N,N,N,R,N,N,N,R,N,R,N,N,N,R,N,N,N,N,N,N,N,R,R,N,R,R,N,N,R,N,N,R,R,N,R,R,R,R,N,N,N,N,N,N,N,N,R,R,N,R,R,N,R,R,N,N,R,R,N,N,N,R,R,R,R,N,R,R,R,R,R,R,R,N,N,N,R,R,N,N,R,R,N,N,N,N,R,N,N
+B2,N,R,N,N,N,N,N,R,N,N,N,N,N,R,R,N,N,N,R,R,N,R,R,N,N,R,N,R,N,N,N,N,R,R,N,R,R,N,R,R,N,N,N,N,R,N,R,R,N,R,N,N,N,R,R,N,N,N,R,N,N,N,N,R,R,N,R,N,R,N,R,R,N,N,N,N,N,N,N,N,N,R,R,R,R,N,N,N,N,N,N,R,R,N,R,N,R,N,N,R
+B3,R,R,R,R,N,R,N,N,N,R,N,N,R,R,N,R,N,R,R,N,R,N,N,R,N,N,R,N,N,N,R,N,R,N,R,R,R,N,N,R,N,N,N,R,R,N,N,N,N,R,R,R,N,R,R,R,N,N,R,R,R,N,N,N,N,R,N,N,R,N,R,N,N,N,N,N,N,R,R,R,R,R,R,R,N,N,R,N,R,R,R,N,N,N,N,N,R,N,N,N
+C1,R,R,R,R,N,N,N,N,R,N,N,N,N,R,N,R,N,R,R,N,R,R,N,R,N,R,R,R,R,N,R,R,R,N,N,N,N,R,N,R,N,N,N,R,N,N,N,N,R,R,R,R,R,R,R,N,R,N,N,N,R,R,N,N,R,R,N,N,N,N,N,R,R,R,R,N,R,N,N,N,N,N,N,N,N,R,R,N,N,R,R,N,N,N,N,N,N,R,N,R
+C2,N,R,R,N,N,R,R,R,N,R,R,R,N,N,R,N,R,R,R,R,N,R,R,R,N,R,N,N,N,R,R,N,R,N,R,R,N,N,N,N,R,R,N,N,R,N,N,R,N,N,R,R,N,N,N,R,R,N,N,R,R,R,N,R,N,N,N,N,R,N,N,R,R,R,R,N,R,R,N,R,R,R,R,N,R,R,N,N,R,R,N,N,N,N,N,N,N,N,N,R
+C3,R,N,R,N,R,N,R,R,N,R,N,N,N,R,R,N,R,N,N,N,R,R,R,N,R,N,R,R,N,R,N,N,R,R,R,N,N,R,N,N,N,N,R,R,R,N,N,N,R,N,R,R,R,R,N,N,N,N,R,R,R,R,R,R,R,N,N,R,N,R,N,R,R,N,R,N,R,R,R,R,N,N,N,N,N,N,N,N,N,R,R,N,N,R,R,N,N,N,N,R
+D1,R,R,R,R,N,R,R,R,N,N,N,N,N,R,N,R,R,N,N,N,R,N,R,N,R,N,N,N,N,R,R,R,N,R,N,R,R,N,N,R,R,N,N,R,R,R,N,R,R,N,N,N,N,R,N,N,R,R,R,R,R,R,N,R,N,N,R,R,N,R,N,R,N,R,R,R,R,N,R,R,N,N,N,R,N,R,N,R,R,R,R,N,N,R,R,R,N,R,N,R
+D2,R,R,R,R,N,N,R,R,R,R,N,N,N,N,N,N,N,N,R,N,R,N,R,R,N,N,R,N,N,N,N,R,N,N,N,R,N,N,N,N,N,N,N,N,N,R,N,R,R,N,R,R,N,R,N,N,R,R,N,R,N,R,R,R,N,R,R,R,R,N,R,R,N,N,R,N,N,N,R,R,R,N,N,R,R,N,N,R,R,R,N,N,N,N,N,N,R,N,R,N
+D3,R,N,N,R,R,R,N,N,R,R,N,R,R,R,N,N,R,R,N,N,N,R,R,N,N,R,N,R,R,R,R,N,N,N,R,R,N,N,N,N,R,N,N,R,N,R,N,R,N,N,N,R,N,N,N,N,R,R,R,N,R,N,N,N,R,N,N,R,N,R,N,N,R,R,N,R,R,R,R,N,R,N,R,R,N,R,R,R,N,R,N,R,R,R,N,N,R,R,N,R

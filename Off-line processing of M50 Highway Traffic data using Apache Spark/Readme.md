@@ -15,7 +15,9 @@ publicly in its raw form The frst row of each fle contains headers which describ
 The following explains some of the less obvious column headers:
 cosit: The unique identifier for the traffic counter device. In conjunction with the site’s dataset, this can be used to determine the location and route of the counter, used to record the vehicle movement.
 lane: The Id of the lane in which the movement was recorded, which is specific to each counter.
+
 straddlelane: If a value is present, this indicates that the vehicle may have been changing lanes as it passed over the counter.
+
 class/classname: This indicates the category of vehicle that was recorded e.g. car, bus, etc.
 length: The approximate length of the vehicle recorded.
 headway: The approximate distance between the front of the recorded vehicle and the vehicle behind.

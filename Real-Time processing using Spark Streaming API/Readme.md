@@ -1,7 +1,9 @@
 ### Real Time Processing using Spark Streaming API
 
 I have prepared a stream layer(On-line processing pipeline) of the lambda architecture that enables to perform some analytics on M50 Highway data using Spark Streaming API. 
-To emulate a live-stream of the traffic counter dataset, I wrote a separate Python script that reads 10 records for every 5 seconds for every traffic counter and stores them in a streaming directory
+
+To emulate a live-stream of the traffic counter dataset, I wrote a separate Python script that reads 10 records for every 5 seconds for every traffic counter and stores them in a streaming directory.
+
 I have prepared cassandra structures and the spark code that saves the computed batch views into these structures.
 
 

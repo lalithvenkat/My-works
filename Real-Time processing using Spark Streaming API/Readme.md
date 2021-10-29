@@ -74,7 +74,7 @@ data = ssc.textFileStream("stream2/")
 ```
 
 From the vehicle records file containing traffic data, I have generated live streaming data for every 5 seconds using python script.
-![image_info](Pictures/stream)
+![image_info](Pictures/stream.PNG)
 
 
 ###  Real-time Views
@@ -362,7 +362,7 @@ ssc.start()
 continue.........
 
 ## Creating Cassandra Table Structures
-![image_info](Pictures/tables)
+![image_info](Pictures/tables.png)
 
 Cassandra Table Structures
 CREATE KEYSPACE streams WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};

@@ -34,10 +34,6 @@ The data is updated and published daily, one day in arrears. The traffic counter
 I have setup hadoop on ubuntu VM in Pseudo Distributed Operation (for storing the data in HDFS) and Apache Spark.
 I have Installed Jupyter Notebook linked with PySpark. 
 
-![image info](/pictures/hdfs.png)
-
-I have downloaded the dataset and moved it into HDFS file system, and loaded it into a Dataframe using PySpark.
-
 ### Execution
 
 Importing all sparkcontext, sparkconf,sparksession from pyspark 
@@ -54,6 +50,7 @@ ss= spark
 ### 1) Loading the csv file from the Hdfs file system
 
 Loading the csv file from hdfs requires the hadoop services to be started.
+
 ![image_info](Pictures/hadoop.png)
 
 

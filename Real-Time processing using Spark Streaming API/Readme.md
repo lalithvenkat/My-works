@@ -362,7 +362,7 @@ ssc.start()
 continue.........
 
 ## Creating Cassandra Table Structures
-![image_info](Pictures/tables.png)
+![image_info](Pictures/tables.PNG)
 
 Cassandra Table Structures
 CREATE KEYSPACE streams WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};

@@ -1,7 +1,12 @@
 ---
+title: "BDA Assignment 2"
+author: "Lalith Venkat Perugu"
+date: "11/01/2021"
 output:
-  html_document: default
-  github_document: default
+  pdf_document: default
+  word_document: default
+  html_document: 
+    df_print: paged
 ---
 # Loading the Melbourne data set.
 ```{r echo=TRUE}
@@ -41,6 +46,7 @@ if(!require('C50'))
   install.packages("C50",repos="http://cran.us.r-project.org")
 library('C50')
 ```
+
 ```{r echo=TRUE} 
 summary(housingdata)
 ```
@@ -186,6 +192,7 @@ z.test(rooms2sample,rooms3sample,alternative="less",mu=212435.4,sigma.x = sd(roo
 
 
 
+
 ```{r echo=TRUE}
 noofrooms<-c(2,3)
 boxplot(housingdata$Price[housingdata$Rooms==2],housingdata$Price[housingdata$Rooms==3],main="exploring the house price depending the no of rooms",ylim=c(90000,3000000),col=c("blue","orange"),xlab="No of Rooms", ylab="Range of Price",noofrooms)
@@ -239,13 +246,14 @@ summary(lmod)
 ```
 
 
+
+
 #Task 2
 
 The task is to split the data into training data and test data with a split percentage of 75/25.
 First lets load the caret library, which contains many functions for modeling training process in regression and classification.
 
 ## Performing linear regression with multiple variables to predict the house price
-
 ```{r echo=TRUE}
 library(caret)
 set.seed(100)  
@@ -272,11 +280,9 @@ summary(prediction1)
 
 ```{r echo=TRUE}
 trainingdata1<-trainingdata
-
 ```
 
 Here we have replicated training data as trainingdata1 as a precautionary to not disturb the original training data while trying to know the possible variables for predicting the house price using corrplot
-
 ```{r echo=TRUE}
 str(trainingdata1)
 library(corrplot)
@@ -306,7 +312,6 @@ RMSE(testdata$Price, prediction1)
 ## Normalization of data
 
 Here we are using min-max scaling normalization to bring all variables in same range.
-
 ```{r echo=TRUE}
 normal <- preProcess(housingdata[,c(4:6,10:13)], method=c("range"))
 normdata <- predict(normal, housingdata[,c(4:6,10:13)])
@@ -409,39 +414,8 @@ confusionMatrix(C5_predict, c50_test$Type )
 
 ```
 we can observe that from the above output c50 algorithm has an accuracy of 85 for the following data.
-`
+conclusion:
+By observing the two classifications we found that decision-tree i.e c5.0 algorithm has more accuracy with large data sets.
 
-# 3 ANN
-The artificial neural networks models the relantionship between input signals and output signal using a model
-```{r echo= TRUE}
-library("neuralnet")
+``
 
-housingdata.set<-housingdata[,c(4,6,12)]
-housingdata.set = housingdata.set[complete.cases(housingdata.set),]
-housingdata.set<-na.omit(housingdata.set)
-a=apply(housingdata.set, 2, function(x) any(is.na(x) | is.infinite(x)))
-
-normalize <- function(x) {
-return((x - min(x)) / (max(x) - min(x)))
-}
-housingdata.set <- as.data.frame(lapply(housingdata.set, normalize))
-train_index <-sample(nrow(housingdata.set),2/3 *nrow(housingdata.set))
-A_training <- housingdata.set[train_index,]
-B_test <- housingdata.set[-train_index,]
-A_fit <- neuralnet(Price~., data = A_training)
-plot(A_fit)
-A_results<-compute(A_fit,B_test)
-p_strength<-A_results$net.result
-cor(p_strength,B_test$Price)
-## We have obtained the correlation.
-
-
-
-```
-
-
-
-
-```
-
-```

@@ -1,11 +1,10 @@
+# Hypothesis/Regression/Classification on Melbourne housing data.
 
------
+I have performed Hypothesis testing, Regression and classification on the melbourne housing data.
 
-output: github\_document
+The dataset is already cleaned, It doesn't have any missing/ incorrect values.
 
------
-
-# Loading the Melbourne data set.
+### Loading the Melbourne data set.
 
 ``` r
 housingdata <- read.csv("C:/Program Files/R/melbourne_housing_data.csv")
@@ -32,6 +31,8 @@ str(housingdata)
     ##  $ Propertycount: int  4019 4019 4019 1543 3464 3464 3464 3464 3280 2185 ...
     ##  $ Distance     : num  3 3 3 7.5 10.4 10.4 10.4 10.4 3 10.5 ...
     ##  $ CouncilArea  : chr  "Yarra City Council" "Yarra City Council" "Yarra City Council" "Moonee Valley City Council" ...
+
+### Summary of the data 
 
 ``` r
 summary(housingdata)
@@ -66,40 +67,38 @@ summary(housingdata)
     ##  3rd Qu.:16.7                     
     ##  Max.   :55.8
 
-# Task A
 
 ## Hypothesis 1
 
 ## one sample Test
 
-From the housing data set we take the price variable and lets define the
-hypothesis on house prices with respective to the house types h and u.
-Lets go with the Z test as we have the mean and standard deviation for
-the house prices.
+From the housing data set we take the price variable and lets define the hypothesis on house prices with respective to the house types h and u.
 
-## 1 Defining the hypothesis
+I have choosen Z test as we have the mean and standard deviation for the house prices.
 
-### Null hypothesis Ho: The Average price of the houses with rescpective to the house type h is equal to the Average price of the houses with house type u
+### 1 Defining the hypothesis
 
-### i.e Ho = mu1-mu2=0
+Null hypothesis Ho: The Average price of the houses with rescpective to the house type h is equal to the Average price of the houses with house type u
 
-### Alternate Hypothesis H1: The Average price of the houses with rescpective to the house type h is not equal to the Average price of the houses with house type u
+i.e Ho = mu1-mu2=0
 
-### i.e H1: mu1-mu1 not equal to zero
+Alternate Hypothesis H1: The Average price of the houses with rescpective to the house type h is not equal to the Average price of the houses with house type u
 
-## 2 State Alpha:
+i.e H1: mu1-mu1 not equal to zero
 
-### Lets take the significance level as 0.05
+### 2 State Alpha:
 
-## 3 Confidence level = 95
+Lets take the significance level as 0.05
 
-## 4 Decision Rule:
+### 3 Confidence level = 95
 
-### If the z value is less than -1.96 or greater than 1.96,Reject the null hypothesis.
+### 4 Decision Rule:
 
-## Test statestic
+If the z value is less than -1.96 or greater than 1.96,Reject the null hypothesis.
 
-### We use the z test method as we have the sample size greater than 30 , and also the standard deviation is known.
+### Test statestic
+
+I have used the z test method as the sample size is greater than 30 , and also the standard deviation is known.
 
 ### Here we are using two samples of different house type prices.
 
@@ -172,15 +171,17 @@ z.test(sampleoftypeh,sampleoftypeu,alternative = "two.sided",mu=0,sigma.x = sd(s
     ## mean of x mean of y 
     ##   1152300   1014770
 
-## Conclusion: From the above two sample z test using z.test function we can notice that z value is lies between -1.96 and +1.96, Which means we should not reject the null hypothesis according to the Decision Rule.
+### Conclusion: 
 
-## Also we can also find the p value is greater than the siginificane value (Alpha value), Which confirms that we should not reject the Null hypothesis
+* From the above two sample z test, using z.test function we can notice that z value is lies between -1.96 and +1.96, Which means we should not reject the null hypothesis according to the Decision Rule.
 
-## From the output we can also notice that the true difference in means of two samples is not equal to 0.
+* Also it is found that p value is greater than the siginificane value (Alpha value), Which confirms that we should not reject the Null hypothesis
 
-## The output also provides that sample mean estimates of two samples.
+* From the output we can also notice that the true difference in means of two samples is not equal to 0.
 
-## Here we have BSDA package to use the z test function.
+* The output also provides that sample mean estimates of two samples.
+
+Here i have used BSDA package to use the z test function.
 
 ``` r
 housetype<-c("h","u")
@@ -222,35 +223,37 @@ class(sample1)
 
     ## [1] "integer"
 
-# Hypothesis 2:
+## Hypothesis 2:
 
-## two sample z test
+### two sample z test
 
-From the housing data set we take the price variable and lets define the
-hypothesis on house prices with respective to the no of rooms that house
-has. Here we are considering the houses that contain only 2 and 3 rooms.
-We take two samples and make the conclusion for the following
-hypothesis. \#\# Defining Hypothesis
+From the housing data set we take the price variable and lets define the hypothesis on house prices with respective to the no of rooms that house has. Here we are considering the houses that contain only 2 and 3 rooms. We take two samples and make the conclusion for the following hypothesis. 
 
-## Null Hypothesis: The Average price of houses with only 2 rooms is less than or equal to the average price of the houses with only 3 rooms.
+### Defining Hypothesis
+
+#### Null Hypothesis:
+The Average price of houses with only 2 rooms is less than or equal to the average price of the houses with only 3 rooms.
 
 i.e Ho: u\<= u1
 
-## Alternate Hypothesis: The Average price of houses with only 2 rooms is greater than the average price of the houses with only 3 rooms.
+#### Alternate Hypothesis:
+The Average price of houses with only 2 rooms is greater than the average price of the houses with only 3 rooms.
 
 i.e H1: u\>u1
 
-## State Alpha
+#### State Alpha
 
 The significance level(alpha) is defined as 0.05
 
-## Confidence level is defined as 95
+#### Confidence level is defined as 95
 
-## Decision Rule:If the z value is less than -1.96 or greater than 1.96,Reject the null hypothesis.
+#### Decision Rule:
+If the z value is less than -1.96 or greater than 1.96,Reject the null hypothesis.
 
-## Test statistic:We use the z test method as we have the sample size greater than 30 , and also the standard deviation is known.
+#### Test statistic:
+I have used the z test method as the sample size is greater than 30 , and also the standard deviation is known.
 
-## Here we are using two samples of with respect to no of rooms
+#### Here we are using two samples with respect to no of rooms
 
 ``` r
 boxplot(housingdata$Price~housingdata$Rooms)
@@ -306,11 +309,11 @@ z.test(rooms2sample,rooms3sample,alternative="less",mu=212435.4,sigma.x = sd(roo
     ## mean of x mean of y 
     ##    697985    849462
 
-## From the output we can notice that the Z value is -6.5124.
+#### From the output we can notice that the Z value is -6.5124.
 
 ## Conclusion
 
-## The Z values doesn’t lie between the -1.96 and +1.96 as stated in decision rule, Hence we should reject the null hypothesis.
+The Z values doesn’t lie between the -1.96 and +1.96 as stated in decision rule, Hence we should reject the null hypothesis.
 
 ``` r
 noofrooms<-c(2,3)
@@ -321,26 +324,33 @@ boxplot(housingdata$Price[housingdata$Rooms==2],housingdata$Price[housingdata$Ro
 From the graph we can observe that the house with only two rooms has
 less mean price than the houses with 3 rooms.
 
-# Hypothesis 3
+## Hypothesis 3
 
-# One sample t test
+### One sample t test
 
-To determine whether the sample mean of prices and mean of prices are
-equal. \#\# 1 Define Hypothesis \#\# Null hypothesis HO: To check
-whether the sample mean of house prices are equal to the mean of the
-house prices. \#\# Ho= 997898.2
+To determine whether the sample mean of prices and mean of prices are equal. 
 
-## Alternate Hpyothesis: To check whether the sample mean of house are not equal to the mean of house prices
+## 1 Define Hypothesis 
 
-## H1 not equal to 997898.2
+#### Null hypothesis HO:
+To checkwhether the sample mean of house prices are equal to the mean of the house prices. 
 
-## Alpha = 0.05
+Ho= 997898.2
 
-## confidence level =95
+#### Alternate Hpyothesis:
+To check whether the sample mean of house are not equal to the mean of house prices
 
-## Decision Rule: Reject null hypothesis if t \> 2.26 and t\<2.26
+H1 not equal to 997898.2
 
-## Test statistic: even though we assume to know the mean og the house price, we use t-test , as we assume that our sample is less than 30.
+#### Alpha = 0.05
+
+#### confidence level =95
+
+#### Decision Rule: 
+Reject null hypothesis if t \> 2.26 and t\<2.26
+
+#### Test statistic: 
+even though we assume to know the mean of the house price, I used t-test , as i had assumed that the sample is less than 30 (to perform t-test).
 
 ``` r
 sampledata<-sample(housingdata$Price ,30,replace = FALSE)
@@ -353,7 +363,7 @@ sd(sampledata)
 t.test(sampledata,alternative="two.sided",mu=997898.2,conf.level = 0.95)
 ```
 
-    ## 
+
     ##  One Sample t-test
     ## 
     ## data:  sampledata
@@ -365,21 +375,24 @@ t.test(sampledata,alternative="two.sided",mu=997898.2,conf.level = 0.95)
     ## mean of x 
     ##  905933.3
 
-## conclusion: From the above output we can notice that t value is -0.3442 and p value =0.733
+#### conclusion:
+* From the above output it is noticed that t value is -0.3442 and p value =0.733
 
-## As t value lies betwwn the -2.26 and +2.26 as stated in the decision rule, We can confirm that we don’t reject the null hypothesis.
+* As t value lies betwwn the -2.26 and +2.26 as stated in the decision rule, We can confirm that we don’t reject the null hypothesis.
 
-## It also provides values which are from 765713.3 and 1163153.4 for 95 confidence interval
+* It also provides values which are from 765713.3 and 1163153.4 for 95 confidence interval
 
-# Hypothesis 4
+## Hypothesis 4
 
-# Linear Regression between the price and distance
+### Linear Regression between the price and distance
 
-## 1 Define hypothesis:
+### 1 Define hypothesis:
 
-## Null Hypothesis Ho= There is linear relation between price and distance
+#### Null Hypothesis:
+Ho= There is linear relation between price and distance
 
-## Alternative Hypothesis H1 = There is no linear relation between price and distance.
+#### Alternative Hypothesis:
+H1 = There is no linear relation between price and distance.
 
 ``` r
 lmod<-lm(Price ~ Distance, data=housingdata)
@@ -405,28 +418,30 @@ summary(lmod)
     ## Multiple R-squared:  0.06435,    Adjusted R-squared:  0.06433 
     ## F-statistic:  3331 on 1 and 48431 DF,  p-value: < 2.2e-16
 
-## From the above output we see R-squared value of 0.06433
+From the above output we see R-squared value of 0.06433
 
-## Conclusion: From the above finding’s with respect to R-squared value which is 0.06433 tells that there is very less variance for price and distance. As the p value 2.2e-16\<0.05 suggests that this overall a good model. But there are also many other variables which have a significant relantionship with price.
+#### Conclusion: 
+From the above finding’s with respect to R-squared value which is 0.06433 tells that there is very less variance for price and distance. As the p value 2.2e-16\<0.05 suggests that this overall a good model. But there are also many other variables which have a significant relantionship with price.
 
 ```` 
 
 
 
 
-#Task 2
+## Splitting the dataset to perform Regression and Classification on the data
 
 The task is to split the data into training data and test data with a split percentage of 75/25.
-First lets load the caret library, which contains many functions for modeling training process in regression and classification.
 
-## Performing linear regression with multiple variables to predict the house price
+Firstly,the caret library is loaded, which contains many functions for modeling training process in regression and classification.
+
+### Performing linear regression with multiple variables to predict the house price
+
+* Setting a seed number ensures that we get the same result when we run this process with the same seed.
+* splitting the data set into training data and test data
 
 ```r
 library(caret)
 set.seed(100)  
-## Setting a seed number ensures that we get the same result when we run this process with the same seed.
-
-##splitting the data set into training data and test data
 trainingindex <- createDataPartition(housingdata$Price, p= 0.75, list = F)
 trainingdata<-housingdata[trainingindex,]
 testdata<-housingdata[-trainingindex,]
@@ -434,6 +449,7 @@ testdata<-housingdata[-trainingindex,]
 linear_model<-lm(Price~Rooms+Type+Distance+Postcode+Regionname+Propertycount,data=housingdata)
 linear_model
 ````
+
 
     ## 
     ## Call:
@@ -645,16 +661,15 @@ RMSE(testdata$Price, prediction1)
 
     ## [1] 411240.8
 
-## Here we can find that the Adjusted R squared value is 0.5212 and the multiple R-squared value is 0.5213.
+* Here we can find that the Adjusted R squared value is 0.5212 and the multiple R-squared value is 0.5213.
 
-## The R-squared value gives the propotion of variance for dependent variable with respect to indepedent variables.
+* The R-squared value gives the propotion of variance for dependent variable with respect to indepedent variables.
 
-## The prediction accuracy of the model on the test data with respect to RMSE and correlation is 411240.8 and 0.5328335
+* The prediction accuracy of the model on the test data with respect to RMSE and correlation is 411240.8 and 0.5328335
 
 ## Normalization of data
 
-Here we are using min-max scaling normalization to bring all variables
-in same range.
+Here i have used min-max scaling normalization to bring all variables in same range.
 
 ``` r
 normal <- preProcess(housingdata[,c(4:6,10:13)], method=c("range"))
@@ -685,8 +700,7 @@ trainingdata2 <- normdata[trainingindex2,]
 testdata2 <- normdata[-trainingindex2,]
 ```
 
-Performing linear regression with multiple variables to predict the
-house price
+#### Performing linear regression with multiple variables to predict the house price
 
 ``` r
 linear_model2<-lm(Price~Rooms+Type+Distance+Postcode+Regionname+Propertycount,data=normdata)
@@ -819,13 +833,13 @@ data. The main difference between these models are RMSE value. The Rmse
 value for the normalized data is 0.036820 which is very low with respect
 the rsme value of original data.
 
-# Task 3
+## Classification
 
-## Dividing the dataset
+#### Dividing the dataset
 
-Here we are splitting the data set into training data set and test data
-set with ratio of 80/20. we also peform normalization on the data set
-for better results.
+Here we are splitting the data set into training data set and test data set with ratio of 80/20. Also i have peformed normalization on the data set for better results.
+
+## k-NN classifier:
 
 ``` r
 housingdata.sub1<-housingdata[,c(4,5,6,7,12,13)]
@@ -834,8 +848,6 @@ housingdata.sub2 <- housingdata.sub1[samplesize, ]
 indxdata <- createDataPartition(y = housingdata.sub2$Type,p = 0.8,list = FALSE)
 training5 <- housingdata.sub2[indxdata,]
 testing5 <- housingdata.sub2[-indxdata,]
-
-# Run k-NN:
 set.seed(200)
 ctrl <- trainControl(method="repeatedcv",repeats = 3)
 knnFit <- train(Type ~ ., data = training5, method = "knn", trControl = ctrl, preProcess = c("center","scale"),tuneLength = 5)
@@ -886,16 +898,15 @@ confusionMatrix(knnFit)
     ##                             
     ##  Accuracy (average) : 0.7706
 
-## From the above output we can observe that the knn with 801 samples from a dataset has 5 predictors and 3 classes which are categorized by house types.
+* From the above output we can observe that the knn with 801 samples from a dataset has 5 predictors and 3 classes which are categorized by house types.
 
-## We can observe the respective accuracy for knn with respect to change in the value of k
+* We can observe the respective accuracy for knn with respect to change in the value of k
 
-## Thus the Accuracy for knn is 79
+* Thus the Accuracy for knn is 79
 
-# 2\) C5.0
+## C5.0 classification
 
-using c5.0 algorithm to classify house types into appropriate types
-based on their features.
+using c5.0 algorithm to classify house types into appropriate types based on their features.
 
 ``` r
 library(caret)
@@ -978,10 +989,7 @@ summary(C5_fit)
     ## 
     ## Time: 0.0 secs
 
-we can observe that there are 401 samples with 5 predictor and 3
-classes. It shows the classification of model types winnow and trails.
-the final value used for the model were trials = 20, model =tree and
-winnow =False
+we can observe that there are 401 samples with 5 predictor and 3 classes. It shows the classification of model types winnow and trails. the final value used for the model were trials = 20, model =tree and winnow =False
 
 ``` r
 C5_predict <- predict(C5_fit, newdata = c50_test )
@@ -1019,9 +1027,6 @@ confusionMatrix(C5_predict, c50_test$Type )
     ## Detection Prevalence   0.8081  0.00000   0.1919
     ## Balanced Accuracy      0.8009  0.50000   0.8920
 
-we can observe that from the above output c50 algorithm has an accuracy
-of 85 for the following data. conclusion: By observing the two
-classifications we found that decision-tree i.e c5.0 algorithm has more
-accuracy with large data sets.
+#### Conclusion:
+we can observe that from the above output c50 algorithm has an accuracy of 85 for the following data. conclusion: By observing the two classifications we found that decision-tree i.e c5.0 algorithm has more accuracy with large data sets.
 
-\`\`

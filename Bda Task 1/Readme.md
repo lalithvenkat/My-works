@@ -2,7 +2,8 @@
 
 I have performed an Exploratory Data Analysis on a Melbourne housind data using R programming.
 
-The dataset contains information of about 35000 houses in the city of melbourne
+The dataset contains information of about 35000 houses in the city of melbourne.
+
 The variables of the dataset are:
 * Rooms:Number of rooms
 * Price:Price in Australian dollars
@@ -73,11 +74,11 @@ housing[housing$Car>6,"Car"]<-6
 housing$Price<-replace(housing$Price, housing$Price>2000000,1600000)
 ```
 
-    #### The dataset after removing the outliners and incorrect/missing values
-    
-    ```r
-    str(housing)
+#### The dataset after removing the outliners and incorrect/missing values
 
+```r
+str(housing)
+```
     ## 'data.frame':    8342 obs. of  13 variables:
     ##  $ X            : int  7 15 19 25 26 31 33 36 38 39 ...
     ##  $ Date         : chr  "4/06/2016" "8/10/2016" "8/10/2016" "12/11/2016" ...
@@ -95,7 +96,9 @@ housing$Price<-replace(housing$Price, housing$Price>2000000,1600000)
     ##  - attr(*, "na.action")= 'omit' Named int [1:25962] 1 2 4 6 8 9 10 11 13 14 ...
     ##   ..- attr(*, "names")= chr [1:25962] "1" "2" "4" "6" ...
 
-### 2\) summary of the dataset gives the mean , meadian,1st Quartile,3rd Quartile,maximum,minimun values for all numerical variables
+### Finding the Statistics of the data.
+
+summary of the dataset gives the mean , meadian,1st Quartile,3rd Quartile,maximum,minimun values for all numerical variables
 
 ``` r
 summary(housing)
@@ -145,7 +148,7 @@ pie3D(mytable, labels = lbls,radius =1,
 
 #### The above pie chart is for the House types and their respective count.
 
-#### Here i have used plotrix package to form a 3D pie chart
+Here i have used plotrix package to form a 3D pie chart
 
 ## Bar Chart
 
@@ -179,7 +182,7 @@ abline(lm(b~a), col="red")
 
 ![](assignment1_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
-## 3\) Analysis on Price Variable
+## Analysis on Price Variable
 
 ### 3a) Histogram for price variable
 
@@ -203,16 +206,16 @@ var(housing$Price)
 ```
 
     ## [1] 1.87924e+11
+    
+The var() gives the varience for the price variable
 
-### The var() gives the varience for the price variable
+## Grouping The Houses by price ranges such as Low, High, Medium
 
-## 3b) Grouping The Houses by price ranges such as Low, High, Medium
+Here i have installed dplyr package to use the group_by()
 
-### Here i have installed dplyr package to use the group\_by()
+I have used the mutate() to create a new variable called state.
 
-### I have used the mutate() to create a new variable called state.
-
-### I have obtained the summary for the groups.
+I have obtained the summary for the groups.
 
 ``` r
 y<-housing %>% group_by(Type) %>% mutate(state= cut(Price,breaks=3,labels=c("Low","Medium","high"),include.lowest = TRUE))
@@ -222,7 +225,7 @@ summary(y$state)
     ##    Low Medium   high 
     ##   3288   3093   1961
 
-## 3c) Exploring the prices for different house types using boxplot
+## Exploring the prices for different house types using boxplot
 
 ``` r
 housetype<-c("h","t","u")
@@ -232,11 +235,10 @@ types",ylim=c(30000,2000000),col = c("blue","red","orange"),xlab="House Type",yl
 
 ![](assignment1_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
 
-### 3d)The variables that are most correlated with price
 
-### By using cor() with price and all the other variables we can observer that Rooms,Bathroom,BuildingArea are the three variables most correlated with price.
+By using cor() with price and all the other variables i can observer that Rooms,Bathroom,BuildingArea are the three variables most correlated with price.
 
-## 4)Listing the frequencies of various house type
+## Listing the frequencies of various house type
 
 ``` r
 table(housing$Type)
@@ -246,13 +248,13 @@ table(housing$Type)
     ##    h    t    u 
     ## 6147  723 1472
 
-#### From the above we can see frequencies of various house types
+From the above we can see frequencies of various house types
 
 ### Scatter plots
 
 ### scatter plot of houseprice by landsize
 
-### here i have installed gglpot2 package to use the ggplot function
+Here i have installed gglpot2 package to use the ggplot function
 
 ``` r
 ggplot(housing,aes(Price,BuildingArea, col = Landsize),xlim(500000,2000000),ylim(0,500))+ geom_point()+ggtitle("House price by landsize")

@@ -1,4 +1,22 @@
-# EDA on Melbourne Housing using R
+# EDA on Melbourne Housing data using R
+
+I have performed an Exploratory Data Analysis on a Melbourne housind data using R programming.
+
+The dataset contains information of about 35000 houses in the city of melbourne
+The variables of the dataset are:
+* Rooms:Number of rooms
+* Price:Price in Australian dollars
+* Date:Date sold
+* Type:House type (h=house, u=unit/duplex, t=townhouse)
+* Distance:Distance from Central Business District in KMs
+* Regionname:General Region (West, North West, North, etc.)
+* Propertycount:Number of properties that exist in the suburb
+* Bathroom:Number of bathrooms
+* Car:Number of carspots
+* Landsize:Land size in Metres
+* BuildingArea:Building size in Metres
+* YearBuilt:Year the house was built
+
 ## Loading the Melbourne Data set
 
 ``` r
@@ -21,21 +39,19 @@ str(housing)
     ##  $ Regionname   : chr  "Northern Metropolitan" "Northern Metropolitan" "Northern Metropolitan" "Northern Metropolitan" ...
     ##  $ Propertycount: chr  "4019" "4019" "4019" "4019" ...
 
-## Task
+## My first task is to clean the dataset and prepare it for analysis by removing/replacing NAs, outliers, and incorrect values.
 
-### Firstly the dataset should be cleaned and make it available for analysis by removing/replacings the NAs,outliers and incorrect values
-
-#### Removing the NA values
+Removing the NA values
 
 ``` r
 housing<-na.omit(housing)
 ```
 
-#### na.omit() fucntion is used to remove all the NA values from the dataset.
+na.omit() fucntion is used to remove all the NA values from the dataset.
 
-#### we can observe that the data set is large and there are multiple varaibles with many outliners.
+we can observe that the data set is large and there are multiple varaibles with many outliners.
 
-#### For better visualisation we have replaced those outliners for some of the varaiables with the below code.
+For better visualisation we have replaced those outliners for some of the varaiables with the below code.
 
 #### variable Landsize
 
